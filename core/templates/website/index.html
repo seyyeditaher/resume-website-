@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سید طاهر سیدی | رزومه</title>
+    <meta
+      name="description"
+      content="رزومه سید طاهر سیدی — Backend Developer با تمرکز روی Python و Django"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#hero">سید طاهر سیدی</a>
+      <nav class="nav" aria-label="منوی اصلی">
+        <a href="#about">درباره</a>
+        <a href="#skills">مهارت‌ها</a>
+        <a href="#gallery">عکس‌ها</a>
+        <a href="#education">تحصیلات</a>
+        <a href="#contact">تماس</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="باز کردن منو" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Backend Developer</p>
+          <h1 class="reveal">سید طاهر سیدی</h1>
+          <p class="lead reveal">
+            توسعه‌دهنده بک‌اند با تمرکز روی Python و Django — مقیم تهران
+          </p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="mailto:seyyeditaher@gmail.com">ارسال ایمیل</a>
+            <a class="btn btn-ghost" href="https://t.me/seyyeditaher" target="_blank" rel="noopener noreferrer">تلگرام</a>
+          </div>
+        </div>
+
+        <div class="hero-media reveal">
+          <div class="portrait">
+            <img
+              id="profile-photo"
+              src="{% static 'images/profile.jpg' %}"
+              alt="سید طاهر سیدی"
+              width="420"
+              height="520"
+            />
+            <div class="portrait-fallback" aria-hidden="true">
+              <span>س.ط</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-head reveal">
+          <h2>درباره من</h2>
+          <p>مسیر حرفه‌ای و تمرکز فنی</p>
+        </div>
+        <p class="about-text reveal">
+          من سید طاهر سیدی هستم؛ Backend Developer با تمرکز روی اکوسیستم Python و فریم‌ورک Django.
+          علاقه‌مند به ساخت APIهای پایدار، ساختار تمیز کد، و تحویل محصولی قابل اعتماد برای تیم‌ها و کسب‌وکارها.
+        </p>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="section-head reveal">
+          <h2>مهارت‌ها</h2>
+          <p>ابزارها و تکنولوژی‌های اصلی</p>
+        </div>
+        <ul class="skill-list">
+          <li class="reveal">Python</li>
+          <li class="reveal">Django</li>
+          <li class="reveal">REST API</li>
+          <li class="reveal">SQL / پایگاه داده</li>
+          <li class="reveal">Git</li>
+          <li class="reveal">توسعه بک‌اند</li>
+        </ul>
+      </section>
+
+      
+      <section id="projects" class="section">
+        <div class="section-head reveal">
+          <h2>پروژه‌ها</h2>
+          <p>پروژه های من</p>
+        </div>
+        <p>تعداد پروژه ها: {{projects|length}}</p>
+        {% for project in projects %}
+          <article class="project">
+              <h3>
+                <a href="/project/{{ project.id }}/">
+                    {{ project.name }}
+                </a>
+              </h3>
+              <p>{{ project.description }}</p>
+              <p>تاریخ: {{ project.date|date:"Y-m-d" }}</p>
+          </article>
+        {% empty %}
+          <p>هنوز پروژه‌ای اضافه نشده است.</p>
+        {% endfor %}
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="section-head reveal">
+          <h2>عکس‌ها</h2>
+          <p>چند قاب از مسیر شخصی</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item reveal">
+            <img src="{% static 'images/gallery-01.jpg' %}" alt="سید طاهر سیدی" width="640" height="640" loading="lazy" />
+          </figure>
+          <figure class="gallery-item reveal">
+            <img src="{% static 'images/gallery-02.jpg' %}" alt="سید طاهر سیدی" width="640" height="640" loading="lazy" />
+          </figure>
+          <figure class="gallery-item reveal">
+            <img src="{% static 'images/gallery-03.jpg' %}" alt="سید طاهر سیدی" width="640" height="640" loading="lazy" />
+          </figure>
+          <figure class="gallery-item reveal">
+            <img src="{% static 'images/gallery-04.jpg' %}" alt="سید طاهر سیدی" width="640" height="640" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="education" class="section">
+        <div class="section-head reveal">
+          <h2>تحصیلات</h2>
+          <p>سوابق تحصیلی</p>
+        </div>
+        <article class="edu reveal">
+          <h3>کاردانی کامپیوتر (نرم‌افزار)</h3>
+          <p>مقطع کاردانی در رشته کامپیوتر گرایش نرم‌افزار</p>
+        </article>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="section-head reveal">
+          <h2>تماس</h2>
+          <p>برای همکاری یا گفتگو پیام بدهید</p>
+        </div>
+        <ul class="contact-list">
+          <li class="reveal">
+            <span>ایمیل</span>
+            <a href="mailto:seyyeditaher@gmail.com">seyyeditaher@gmail.com</a>
+          </li>
+          <li class="reveal">
+            <span>موبایل</span>
+            <a href="tel:+989128205061">09128205061</a>
+          </li>
+          <li class="reveal">
+            <span>تلگرام</span>
+            <a href="https://t.me/seyyeditaher" target="_blank" rel="noopener noreferrer">@seyyeditaher</a>
+          </li>
+          <li class="reveal">
+            <span>موقعیت</span>
+            <p>تهران</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> سید طاهر سیدی</p>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

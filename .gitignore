@@ -1,0 +1,34 @@
+Python
+
+pycache/
+*.py[cod]
+
+Virtual environment
+
+.venv/
+venv/
+env/
+
+Database
+
+*.sqlite3
+
+Environment variables and secrets
+
+.env
+.env.*
+!.env.example
+
+Django generated files
+
+staticfiles/
+
+Editors
+
+.vscode/
+.idea/
+
+Operating system
+
+.DS_Store
+Thumbs.db
